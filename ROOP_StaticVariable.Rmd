@@ -1,0 +1,37 @@
+---
+title: "ROOP Static Variable"
+author: "Kevan Doyle"
+date: "January 23, 2015"
+output: html_document
+---
+
+### Bottom line
+For a static variable in a function that will be constructed only once, wrap the function in a constructor and return a list with a getter and setter of the static variable and the function you want to use.
+
+To include a static variable in a class that will be used to create multiple objects, wrap the object constructor inside a class constructor that contains the static variable and that will be called only once (so there is a nest of class constructor that returns the object constructor that returns objects which are a list containing variables, setters, getters and methods)
+
+### How to make an object with a static variable
+````{r echo=FALSE}
+library(knitr)
+read_chunk('ROOP_StaticVariable.R')
+```
+
+### Function that creates a class that will hold the static variable
+````{r echo=TRUE,label='class maker'}
+<<parent function>>
+```
+
+### The actual function you will use in your code
+```{r echo=TRUE,label='the func with static variable'}
+<<the function to use>>
+```
+
+### Check that the variable is indeed static
+```{r echo=TRUE,label='check that var is static'}
+myfunc$getstatv()
+myfunc$setstatv(42)
+myfunc$getstatv()
+```
+
+### An Application: a function that counts how many times it has been called
+
