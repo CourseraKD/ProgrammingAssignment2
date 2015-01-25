@@ -10,11 +10,9 @@
 ## This removes the need to calculate the inverse every time it is 
 ## needed. 
 
-cacheSolve <- function(x, ...) {
-}
-
 # ---- makeCacheMatrix -----------------------------------------------
-## 
+## Make the cached matrix object which is a function that handles
+## the storing and returning of the original matrix and its inverse.
 makeCacheMatrix <- function(x = matrix()) {
     inv <- NULL
     set <- function(y) {
